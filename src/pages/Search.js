@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import styles from './Search.module.css';
 
 class Search extends React.Component {
   constructor() {
@@ -55,7 +56,9 @@ class Search extends React.Component {
     const resultMessage = <p>{`Resultado de álbuns de: ${prevSearch}`}</p>;
     const errorMessage = <p>Nenhum álbum foi encontrado</p>;
     const searchForm = (
-      <form>
+      <form
+        className={ styles.search }
+      >
         <input
           data-testid="search-artist-input"
           value={ searchValue }
