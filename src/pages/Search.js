@@ -63,12 +63,15 @@ class Search extends React.Component {
           data-testid="search-artist-input"
           value={ searchValue }
           onChange={ this.handleChange }
+          className={ styles.search_input }
+          placeholder="Artista ou Álbum"
         />
         <button
           data-testid="search-artist-button"
           type="submit"
           disabled={ disableBtn }
           onClick={ () => { this.handleSubmit(searchValue); } }
+          className={ styles.search_btn }
         >
           Pesquisar
         </button>
@@ -80,20 +83,37 @@ class Search extends React.Component {
         {
           albumList.length > 0
             ? (
-              <div>
+              <section
+                className={ styles.results }
+              >
                 {resultMessage}
-                <ul>
+                <ul
+                  className={ styles.results_albumList }
+                >
                   {albumList.map((album) => (
-                    <li key={ `${album.artistId} ${album.collectionId}` }>
+                    <li
+                      key={ `${album.artistId} ${album.collectionId}` }
+                    >
                       <Link
                         data-testid={ `link-to-album-${album.collectionId}` }
                         to={ `/album/${album.collectionId}` }
+                        className={ styles.albumList_album }
                       >
-                        {album.collectionName}
+                        <img
+                          src={ album.artworkUrl100 }
+                          alt={ album.collectionName }
+                          className={ styles.albumList_album_img }
+                        />
+                        <p
+                          className={ styles.albumList_album_albumName}
+                        >{ album.collectionName }</p>
+                        <p
+                          className={ styles.albumList_album_artistName}
+                        >{ album.artistName }</p>
                       </Link>
                     </li>))}
                 </ul>
-              </div>
+              </section>
             )
             : (
               errorMessage
