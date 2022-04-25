@@ -58,7 +58,7 @@ class MusicCard extends React.Component {
         className={ styles.card }
       >
         <span
-          className={ styles.card_musicName}
+          className={ styles.card_musicName }
         >
           {trackName}
         </span>

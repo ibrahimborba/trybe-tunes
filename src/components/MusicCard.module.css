@@ -5,10 +5,10 @@
 }
 
 .card_audio {
-  display: flex;
   align-items: center;
-  margin-top: 10px;
+  display: flex;
   height: 40px;
+  margin-top: 10px;
 }
 
 .card_musicName {

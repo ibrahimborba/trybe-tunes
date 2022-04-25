@@ -1,16 +1,16 @@
 .profileContainer {
+  align-content: space-between;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
   justify-content: space-between;
-  width: 200px;
   margin: 0 auto;
   margin-top: 30px;
+  width: 200px;
 }
 
 .profileContainer_nonText {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }

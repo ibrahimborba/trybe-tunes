@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
 import styles from './ProfileEdit.module.css';
-import profile from '../images/profile.svg'
+import profile from '../images/profile.svg';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -92,7 +92,7 @@ class ProfileEdit extends React.Component {
               >
                 <img
                   data-testid="profile-image"
-                  src={ imageUrl ? imageUrl : profile }
+                  src={ imageUrl || profile }
                   alt={ userName }
                   className={ styles.imageContainer_image }
                 />

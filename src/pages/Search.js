@@ -105,11 +105,15 @@ class Search extends React.Component {
                           className={ styles.albumList_album_img }
                         />
                         <p
-                          className={ styles.albumList_album_albumName}
-                        >{ album.collectionName }</p>
+                          className={ styles.albumList_album_albumName }
+                        >
+                          { album.collectionName }
+                        </p>
                         <p
-                          className={ styles.albumList_album_artistName}
-                        >{ album.artistName }</p>
+                          className={ styles.albumList_album_artistName }
+                        >
+                          { album.artistName }
+                        </p>
                       </Link>
                     </li>))}
                 </ul>

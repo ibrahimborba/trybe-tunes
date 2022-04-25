@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
 import styles from './Profile.module.css';
-import profile from '../images/profile.svg'
+import profile from '../images/profile.svg';
 
 class Profile extends React.Component {
   constructor() {
@@ -50,7 +50,7 @@ class Profile extends React.Component {
               >
                 <img
                   data-testid="profile-image"
-                  src={ imageUrl ? imageUrl : profile }
+                  src={ imageUrl || profile }
                   alt={ userName }
                   className={ styles.profileContainer_nonText_image }
                 />
@@ -63,16 +63,24 @@ class Profile extends React.Component {
               </section>
               <p
                 className={ styles.profileContainer_textTitle }
-              >Nome</p>
+              >
+                Nome
+              </p>
               <p
                 className={ styles.profileContainer_text }
-              >{userName}</p>
+              >
+                {userName}
+              </p>
               <p
                 className={ styles.profileContainer_text }
-              >{userEmail}</p>
+              >
+                {userEmail}
+              </p>
               <p
                 className={ styles.profileContainer_text }
-              >{userDescription}</p>
+              >
+                {userDescription}
+              </p>
             </section>
           )}
       </div>

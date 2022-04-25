@@ -65,13 +65,13 @@ class Album extends React.Component {
           <div>
             <p
               data-testid="album-name"
-              className={ styles.album_albumName}
+              className={ styles.album_albumName }
             >
               {collection}
             </p>
             <p
               data-testid="artist-name"
-              className={ styles.album_artistName}
+              className={ styles.album_artistName }
             >
               {artist}
             </p>
@@ -84,7 +84,7 @@ class Album extends React.Component {
           {musicList.slice(1).map((music) => (
             <li
               key={ music.trackId }
-            className={ styles.musicsList_item }
+              className={ styles.musicsList_item }
             >
               <MusicCard
                 trackName={ music.trackName }

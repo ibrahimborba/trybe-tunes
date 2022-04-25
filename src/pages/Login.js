@@ -53,7 +53,7 @@ class Login extends React.Component {
       >
         <img
           src={ logo }
-          alt='trybetunes logo'
+          alt="trybetunes logo"
           className={ styles.login_logo }
         />
         <form
