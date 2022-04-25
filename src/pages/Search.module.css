@@ -41,15 +41,16 @@
   flex-direction: column;
   min-height: 250px;
   margin-top: 20px;
-  width: 290px;
+  padding-left: 20px;
   text-decoration: none;
+  width: 290px;
 }
 
 .albumList_album_img {
-  height: 150px;
+  height: 250px;
   image-resolution: 300dpi;
   object-fit: cover;
-  width: 150px;
+  width: 250px;
 }
 
 .albumList_album_albumName {

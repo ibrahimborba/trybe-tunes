@@ -50,7 +50,7 @@ class Profile extends React.Component {
               >
                 <img
                   data-testid="profile-image"
-                  src={ !imageUrl ? imageUrl : profile }
+                  src={ imageUrl ? imageUrl : profile }
                   alt={ userName }
                   className={ styles.profileContainer_nonText_image }
                 />
