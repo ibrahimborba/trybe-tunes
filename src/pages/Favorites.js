@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import styles from './AlbumAndFavorites.module.css';
 
 class Favorites extends React.Component {
   constructor() {
@@ -39,9 +40,14 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        <ul>
+        <ul
+          className={ styles.musicsList }
+        >
           {musicFavorites.map((music) => (
-            <li key={ music.trackId }>
+            <li
+              key={ music.trackId }
+              className={ styles.musicsList_item }
+            >
               <MusicCard
                 trackName={ music.trackName }
                 previewUrl={ music.previewUrl }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import styles from './MusicCard.module.css';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -53,27 +54,36 @@ class MusicCard extends React.Component {
     const { trackName, previewUrl, trackId } = this.props;
     const { checked, loading } = this.state;
     return (
-      <div>
-        <span>{trackName}</span>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          {' '}
-          <code>audio</code>
-          .
-        </audio>
-        <label htmlFor="favorite">
-          Favorita
-          <input
-            id="favorite"
-            data-testid={ `checkbox-music-${trackId}` }
-            type="checkbox"
-            checked={ checked }
-            onChange={ (event) => { this.handleChange(event, checked); } }
-          />
-        </label>
+      <section
+        className={ styles.card }
+      >
+        <span
+          className={ styles.card_musicName }
+        >
+          {trackName}
+        </span>
+        <section
+          className={ styles.card_audio }
+        >
+          <audio data-testid="audio-component" src={ previewUrl } controls>
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            {' '}
+            <code>audio</code>
+            .
+          </audio>
+          <label htmlFor="favorite">
+            <input
+              id="favorite"
+              data-testid={ `checkbox-music-${trackId}` }
+              type="checkbox"
+              checked={ checked }
+              onChange={ (event) => { this.handleChange(event, checked); } }
+            />
+          </label>
+        </section>
         { loading && <Loading /> }
-      </div>
+      </section>
     );
   }
 }

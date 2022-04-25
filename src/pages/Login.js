@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import styles from './Login.module.css';
+import logo from '../images/logo.svg';
 
 class Login extends React.Component {
   constructor() {
@@ -45,23 +47,37 @@ class Login extends React.Component {
   render() {
     const { username, disableBtn, loading } = this.state;
     return (
-      <div data-testid="page-login">
-        <form onSubmit={ (event) => { this.handleSubmit(event, username); } }>
+      <section
+        data-testid="page-login"
+        className={ styles.login }
+      >
+        <img
+          src={ logo }
+          alt="trybetunes logo"
+          className={ styles.login_logo }
+        />
+        <form
+          onSubmit={ (event) => { this.handleSubmit(event, username); } }
+          className={ styles.login_form }
+        >
           <input
             data-testid="login-name-input"
             value={ username }
             onChange={ this.handleChange }
+            className={ styles.login_input }
+            placeholder="Nome"
           />
           <button
             data-testid="login-submit-button"
             type="submit"
             disabled={ disableBtn }
+            className={ styles.login_btn }
           >
             Entrar
           </button>
         </form>
         { loading && <Loading /> }
-      </div>
+      </section>
     );
   }
 }
