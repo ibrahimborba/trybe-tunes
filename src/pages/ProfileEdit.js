@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import styles from './ProfileEdit.module.css';
+import profile from '../images/profile.svg'
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -82,13 +84,36 @@ class ProfileEdit extends React.Component {
         { loading
           ? (<Loading />)
           : (
-            <form>
+            <form
+              className={ styles.form }
+            >
+              <section
+                className={ styles.form_imageContainer }
+              >
+                <img
+                  data-testid="profile-image"
+                  src={ !imageUrl ? imageUrl : profile }
+                  alt={ userName }
+                  className={ styles.imageContainer_image }
+                />
+                <input
+                  data-testid="edit-input-image"
+                  value={ imageUrl }
+                  name="imageUrl"
+                  type="text"
+                  onChange={ this.handleChange }
+                  className={ styles.form_imageInput }
+                  placeholder="url da imagem"
+                />
+              </section>
               <input
                 data-testid="edit-input-name"
                 value={ userName }
                 name="userName"
                 type="text"
                 onChange={ this.handleChange }
+                className={ styles.form_input }
+                placeholder="Nome"
               />
               <input
                 data-testid="edit-input-email"
@@ -96,6 +121,8 @@ class ProfileEdit extends React.Component {
                 name="userEmail"
                 type="email"
                 onChange={ this.handleChange }
+                className={ styles.form_input }
+                placeholder="usuario@email.com"
               />
               <input
                 data-testid="edit-input-description"
@@ -103,19 +130,15 @@ class ProfileEdit extends React.Component {
                 name="userDescription"
                 type="textarea"
                 onChange={ this.handleChange }
-              />
-              <input
-                data-testid="edit-input-image"
-                value={ imageUrl }
-                name="imageUrl"
-                type="text"
-                onChange={ this.handleChange }
+                className={ styles.form_input }
+                placeholder="Descrição"
               />
               <button
                 data-testid="edit-button-save"
                 type="submit"
                 disabled={ disableBtn }
                 onClick={ (event) => { this.handleSubmit(event, userInfo); } }
+                className={ styles.save_btn }
               >
                 Salvar
               </button>

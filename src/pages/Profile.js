@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
+import styles from './Profile.module.css';
+import profile from '../images/profile.svg'
 
 class Profile extends React.Component {
   constructor() {
@@ -40,12 +42,37 @@ class Profile extends React.Component {
         { loading
           ? (<Loading />)
           : (
-            <section>
-              <p>{userName}</p>
-              <p>{userEmail}</p>
-              <p>{userDescription}</p>
-              <img data-testid="profile-image" src={ imageUrl } alt={ userName } />
-              <Link to="/profile/edit">Editar perfil</Link>
+            <section
+              className={ styles.profileContainer }
+            >
+              <section
+                className={ styles.profileContainer_nonText }
+              >
+                <img
+                  data-testid="profile-image"
+                  src={ !imageUrl ? imageUrl : profile }
+                  alt={ userName }
+                  className={ styles.profileContainer_nonText_image }
+                />
+                <Link
+                  to="/profile/edit"
+                  className={ styles.profileContainer_nonText_btn }
+                >
+                  Editar perfil
+                </Link>
+              </section>
+              <p
+                className={ styles.profileContainer_textTitle }
+              >Nome</p>
+              <p
+                className={ styles.profileContainer_text }
+              >{userName}</p>
+              <p
+                className={ styles.profileContainer_text }
+              >{userEmail}</p>
+              <p
+                className={ styles.profileContainer_text }
+              >{userDescription}</p>
             </section>
           )}
       </div>

@@ -1,0 +1,66 @@
+.form {
+  background-color: var(--lighest);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 10%;
+}
+
+.form_input {
+  background-color: var(--lighest);
+  border: none;
+  border-bottom: 2px solid 	var(--gray);
+  height: 42px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.form_input:focus {
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  outline: none;
+  transition: 0.3s;
+}
+
+.form_imageContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form_imageInput {
+  background-color: var(--lighest);
+  border: none;
+  border-bottom: 2px solid 	var(--gray);
+  height: 42px;
+  margin-left: 5px;
+  width: 170px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.imageContainer_image {
+  width: 50px;
+}
+
+.save_btn {
+  background: var(--accent);
+  border: none;
+  box-shadow: 0px 4px 4px rgba(10, 10, 10, 0.25);
+  border-radius: 2px;
+  color: var(--lighest);
+  margin-top: 30px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.save_btn:disabled {
+  background: var(--accent);
+  color: var(--gray);
+  opacity: 0.75;
+}
