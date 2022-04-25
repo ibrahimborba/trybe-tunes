@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import styles from './Album.module.css';
 
 class Album extends React.Component {
   constructor() {
@@ -26,10 +27,11 @@ class Album extends React.Component {
       async () => {
         const album = await getMusics(id);
         const favorites = await getFavoriteSongs();
-        const { artistName, collectionName } = album[0];
+        const { artistName, collectionName, artworkUrl100 } = album[0];
         this.setState({
           artist: artistName,
           collection: collectionName,
+          image: artworkUrl100,
           musicList: album,
           musicFavorites: [...favorites],
           loading: false,
@@ -47,17 +49,43 @@ class Album extends React.Component {
 
   render() {
     const {
-      artist, collection, musicList, musicFavorites, loading, trackPage,
+      artist, collection, musicList, musicFavorites, loading, trackPage, image,
     } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
-        <p data-testid="artist-name">{artist}</p>
-        <p data-testid="album-name">{collection}</p>
+        <section
+          className={ styles.album }
+        >
+          <img
+            src={ image }
+            alt={ collection }
+            className={ styles.album_img }
+          />
+          <div>
+            <p
+              data-testid="album-name"
+              className={ styles.album_albumName}
+            >
+              {collection}
+            </p>
+            <p
+              data-testid="artist-name"
+              className={ styles.album_artistName}
+            >
+              {artist}
+            </p>
+          </div>
+        </section>
         { loading && <Loading /> }
-        <ul>
+        <ul
+          className={ styles.musicsList }
+        >
           {musicList.slice(1).map((music) => (
-            <li key={ music.trackId }>
+            <li
+              key={ music.trackId }
+            className={ styles.musicsList_item }
+            >
               <MusicCard
                 trackName={ music.trackName }
                 previewUrl={ music.previewUrl }
