@@ -5,7 +5,7 @@ import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import styles from './Album.module.css';
+import styles from './AlbumAndFavorites.module.css';
 
 class Album extends React.Component {
   constructor() {
