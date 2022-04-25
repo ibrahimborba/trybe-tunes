@@ -46,9 +46,10 @@
 }
 
 .albumList_album_img {
-  height: 200px;
+  height: 150px;
+  image-resolution: 300dpi;
   object-fit: cover;
-  width: 290px;
+  width: 150px;
 }
 
 .albumList_album_albumName {
