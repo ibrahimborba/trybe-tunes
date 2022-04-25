@@ -72,9 +72,19 @@ class Profile extends React.Component {
                 {userName}
               </p>
               <p
+                className={ styles.profileContainer_textTitle }
+              >
+                Email
+              </p>
+              <p
                 className={ styles.profileContainer_text }
               >
                 {userEmail}
+              </p>
+              <p
+                className={ styles.profileContainer_textTitle }
+              >
+                Descrição
               </p>
               <p
                 className={ styles.profileContainer_text }
