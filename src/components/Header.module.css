@@ -53,6 +53,14 @@
 .navContainer_nav_link {
   color: var(--medium-green);
   font-weight: 600;
+  padding: 2px;
+  text-decoration: none;
+}
+
+.navContainer_nav_link__active {
+  border-bottom: 2px solid var(--medium-green);
+  color: var(--medium-green);
+  font-weight: 600;
   text-decoration: none;
 }
 

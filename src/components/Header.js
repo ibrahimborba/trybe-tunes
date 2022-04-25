@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import styles from './Header.module.css';
@@ -51,9 +51,9 @@ class Header extends React.Component {
           >
             <img
               src={ logo }
-              alt='trybetunes logo'
+              alt="trybetunes logo"
               className={ styles.mainContainer_logo }
-            />          
+            />
           </Link>
           { loading ? <Loading /> : usernameLogged }
         </section>
@@ -63,27 +63,30 @@ class Header extends React.Component {
           <nav
             className={ styles.navContainer_nav }
           >
-            <Link
+            <NavLink
               data-testid="link-to-search"
               to="/search"
-              className={ styles.navContainer_nav_link }
+              className={ (isActive) => (isActive
+                ? styles.navContainer_nav_link__active : styles.navContainer_nav_link) }
             >
               Search
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               data-testid="link-to-favorites"
               to="/favorites"
-              className={ styles.navContainer_nav_link }
+              className={ (isActive) => (isActive
+                ? styles.navContainer_nav_link__active : styles.navContainer_nav_link) }
             >
               Favorites
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               data-testid="link-to-profile"
               to="/profile"
-              className={ styles.navContainer_nav_link }
+              className={ (isActive) => (isActive
+                ? styles.navContainer_nav_link__active : styles.navContainer_nav_link) }
             >
               Profile
-            </Link>
+            </NavLink>
           </nav>
         </section>
       </header>
